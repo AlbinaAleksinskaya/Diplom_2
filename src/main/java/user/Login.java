@@ -11,7 +11,6 @@ public class Login {
 
     @Step("Авторизация")
     public static Response login(String json) {
-
         return given()
                 .header("Content-type", "application/json")
                 .and()
@@ -22,12 +21,10 @@ public class Login {
 
     @Step("Авторизация для получения токена")
     public static String userToken(String json) {
-
         String token = Login.login(json)
                 .then()
                 .extract()
                 .path("accessToken");
-
         return token.substring(7);
     }
 
@@ -52,5 +49,4 @@ public class Login {
         Gson gson = new Gson();
         return gson.toJson(userData);
     }
-
 }

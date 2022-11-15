@@ -9,7 +9,6 @@ public class DeleteUser {
 
     @Step("Удаление пользователя")
     public static void deleteUser(String token) {
-
         given()
                 .auth().oauth2(token)
                 .when()

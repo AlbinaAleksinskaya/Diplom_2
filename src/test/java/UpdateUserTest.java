@@ -28,7 +28,6 @@ public class UpdateUserTest extends Base {
     @Test
     @DisplayName("Изменение почты с авторизацией")
     public void updateMailWithAuthorizationTest() {
-
         boolean success = UpdateUser
                 .patchUser(CreateUser.userToken, UpdateUser.testPositiveUserMail(userData))
                 .then()
@@ -37,15 +36,12 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("success");
-
         assertThat(success, equalTo(true));
-
     }
 
     @Test
     @DisplayName("Изменение имени с авторизацией")
     public void updateNameWithAuthorizationTest() {
-
         boolean success = UpdateUser
                 .patchUser(CreateUser.userToken, UpdateUser.testPositiveUserName(userData))
                 .then()
@@ -54,15 +50,12 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("success");
-
         assertThat(success, equalTo(true));
-
     }
 
     @Test
     @DisplayName("Изменение пароля с авторизацией")
     public void updatePasswordWithAuthorizationTest() {
-
         boolean success = UpdateUser
                 .patchUser(CreateUser.userToken, UpdateUser.testPositiveUserPassword(userData))
                 .then()
@@ -71,14 +64,12 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("success");
-
         assertThat(success, equalTo(true));
     }
 
     @Test
     @DisplayName("Изменение пароля без авторизации")
     public void updatePasswordWithoutAuthorizationTest() {
-
         String message = UpdateUser
                 .patchUser("", UpdateUser.testPositiveUserPassword(userData))
                 .then()
@@ -87,14 +78,12 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(message, equalTo("You should be authorised"));
     }
 
     @Test
     @DisplayName("Изменение почты без авторизации")
     public void updateEmailWithoutAuthorizationTest() {
-
         String message = UpdateUser
                 .patchUser("", UpdateUser.testPositiveUserMail(userData))
                 .then()
@@ -103,14 +92,12 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(message, equalTo("You should be authorised"));
     }
 
     @Test
     @DisplayName("Изменение имени без авторизации")
     public void updateNameWithoutAuthorizationTest() {
-
         String message = UpdateUser
                 .patchUser("", UpdateUser.testPositiveUserName(userData))
                 .then()
@@ -119,7 +106,6 @@ public class UpdateUserTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(message, equalTo("You should be authorised"));
     }
 }

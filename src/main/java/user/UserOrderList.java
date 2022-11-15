@@ -10,7 +10,6 @@ public class UserOrderList {
 
     @Step("Получение списка заказов")
     public static Response userOrderList(String token) {
-
         return given()
                 .auth().oauth2(token)
                 .and()

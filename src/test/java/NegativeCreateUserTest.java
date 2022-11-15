@@ -21,9 +21,7 @@ public class NegativeCreateUserTest extends Base {
     @Test
     @DisplayName("Попытка создания пользователя без имени")
     public void createUserWithoutNameTest() {
-
         Response response = CreateUser.createUser(CreateUser.registerRequestBodyWithoutName(userData));
-
         String messageWithoutName = response
                 .then()
                 .assertThat()
@@ -31,16 +29,13 @@ public class NegativeCreateUserTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(messageWithoutName, equalTo("Email, password and name are required fields"));
     }
 
     @Test
     @DisplayName("Попытка создания пользователя без пароля")
     public void createUserWithoutPasswordTest() {
-
         Response response = CreateUser.createUser(CreateUser.registerRequestBodyWithoutPassword(userData));
-
         String messageWithoutPassword =
                 response
                         .then()
@@ -55,7 +50,6 @@ public class NegativeCreateUserTest extends Base {
     @Test
     @DisplayName("Попытка создания пользователя без почты")
     public void createUserWithoutEmailTest() {
-
         Response response = CreateUser.createUser(CreateUser.registerRequestBodyWithoutEmail(userData));
         String messageWithoutEmail = response
                 .then()

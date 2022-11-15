@@ -13,14 +13,12 @@ public class CreateUser {
 
     @Step("Создание пользователя")
     public static Response createUser(String json) {
-
         return given()
                 .header("Content-type", "application/json")
                 .and()
                 .body(json)
                 .when()
                 .post(REGISTER);
-
     }
 
     @Step("Создание тела для регистрации")
@@ -55,6 +53,5 @@ public class CreateUser {
         String json = gson.toJson(userData);
         createUser(registerRequestBody(userData));
         userToken = Login.userToken(json);
-
     }
 }

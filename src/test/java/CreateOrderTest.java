@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class OrderTest extends Base {
+public class CreateOrderTest extends Base {
 
     UserData userData;
     IngredientData ingredients;
@@ -31,7 +31,6 @@ public class OrderTest extends Base {
     @Test
     @DisplayName("Успешное создание заказа с авторизацией и ингредиентами")
     public void createPositiveOrder() {
-
         String name = Order
                 .order(CreateUser.userToken, Order.positiveOrderBody(ingredients))
                 .then()

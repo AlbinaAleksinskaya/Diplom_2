@@ -12,7 +12,6 @@ public class Order {
 
     @Step("Создание заказа")
     public static Response order(String token, String body) {
-
         return given()
                 .header("Content-type", "application/json")
                 .auth().oauth2(token)
@@ -24,7 +23,6 @@ public class Order {
 
     @Step("Создание заказа без авторизации")
     public static Response createOrderWithoutLogin(String body) {
-
         return given()
                 .header("Content-type", "application/json")
                 .and()

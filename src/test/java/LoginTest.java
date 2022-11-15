@@ -43,7 +43,6 @@ public class LoginTest extends Base {
     @Test
     @DisplayName("Попытка авторизации с неправильной почтой")
     public void loginWithBadLoginTest() {
-
         Response response = Login.login(Login.requestBodyLoginWithBadEmail(userData));
         String messageWithBadLogin = response
                 .then()
@@ -53,13 +52,11 @@ public class LoginTest extends Base {
                 .extract()
                 .path("message");
         assertThat(messageWithBadLogin, equalTo("email or password are incorrect"));
-
     }
 
     @Test
     @DisplayName("Попытка авторизации с неправильным паролем")
     public void loginWithBadPasswordTest() {
-
         Response response = Login.login(Login.requestBodyLoginWithBadPassword(userData));
         String messageWithBadPassword = response
                 .then()
@@ -68,14 +65,12 @@ public class LoginTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(messageWithBadPassword, equalTo("email or password are incorrect"));
     }
 
     @Test
     @DisplayName("Попытка авторизации с неправильными почтой и паролем")
     public void loginWithBadEmailPasswordTest() {
-
         Response response = Login.login(Login.requestBodyLoginWithBadEmailAndPassword(userData));
         String messageWithBadEmailPassword = response
                 .then()
@@ -84,7 +79,6 @@ public class LoginTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(messageWithBadEmailPassword, equalTo("email or password are incorrect"));
     }
 }

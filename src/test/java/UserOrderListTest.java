@@ -33,7 +33,6 @@ public class UserOrderListTest extends Base {
     @Test
     @DisplayName("Список заказов неавторизованного пользователя")
     public void gatOrderWithoutAuthorization() {
-
         String message = UserOrderList
                 .userOrderList("")
                 .then()
@@ -42,9 +41,7 @@ public class UserOrderListTest extends Base {
                 .and()
                 .extract()
                 .path("message");
-
         assertThat(message, equalTo("You should be authorised"));
-
     }
 
     @Test
@@ -59,8 +56,6 @@ public class UserOrderListTest extends Base {
                 .and()
                 .extract()
                 .path("orders");
-
         assertThat(testBody.get(0), notNullValue());
-
     }
 }

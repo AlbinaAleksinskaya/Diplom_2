@@ -7,7 +7,6 @@ public class IngredientData {
 
     private List<String> ingredients = new ArrayList<>();
 
-
     public IngredientData(ArrayList<String> ingredients) {
         this.ingredients = ingredients;
     }

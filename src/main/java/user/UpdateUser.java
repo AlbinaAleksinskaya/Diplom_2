@@ -11,7 +11,6 @@ public class UpdateUser {
 
     @Step("Редактирование пользователя")
     public static Response patchUser(String token, String body) {
-
         return given()
                 .header("Content-type", "application/json")
                 .auth().oauth2(token)
